@@ -19,7 +19,13 @@ mat-toolbar span{
 }
 
 mat-sidenav-container {
-    height: calc(100% - 64px);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+mat-sidenav-content {
+  flex-grow: 1;
 }
 
 .container-for-cards{
@@ -74,4 +80,12 @@ mat-card-content{
 
 .descriptionArticle{
   padding: 0.5em;
+}
+
+.container {
+  margin: 0;
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }

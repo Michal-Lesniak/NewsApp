@@ -1,11 +1,27 @@
 @tailwind base;
-@tailwind components;
 @tailwind utilities;
 
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-html, body { width: 100%;}
-body { font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+app-root {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
