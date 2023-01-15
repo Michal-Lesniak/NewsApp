@@ -6,17 +6,25 @@
 mat-toolbar button{
   display: flex;
   align-items: center;
+  border-radius: 50%;
+  border: none;
 }
 
 mat-toolbar span{
   text-align: center;
 }
 
+
+
   mat-sidenav {
     width: 280px;
     border-right: none;
+    padding: 10px;
+    background-color: #373333 ;
     text-align: center;
 }
+
+
 
 mat-sidenav-container {
     flex-grow: 1;
@@ -29,16 +37,15 @@ mat-sidenav-content {
 }
 
 .container-for-cards{
-  overflow: hidden;
   display: grid;
   grid-template-columns: repeat(3,1fr);
   grid-template-rows:   repeat(2,1fr);
-  grid-gap: 10px;
-  padding: 30px 60px 10px 60px; 
+  grid-gap: 30px;
+  padding: 30px 60px 30px 60px; 
 }
 
 .container-label{
-  margin: 1em 60px 0em 60px;
+  padding: 1em 60px 0em 60px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 22px;
 }
@@ -52,7 +59,6 @@ mat-card{
 }
 
 mat-card-header{
-  overflow: hidden;
   height: 50%;
   width: 100%;  
   padding: 10px;
@@ -88,4 +94,23 @@ mat-card-content{
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.menu-button {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+  margin: 10px;
+  mat-icon {
+      margin-right: 8px;
+  }
+}
+
+.imageJournalism{
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  background-color: white;
 }

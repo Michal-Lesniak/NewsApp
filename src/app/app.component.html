@@ -1,67 +1,62 @@
 <div class="container">
-  <mat-toolbar color="primary">
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with menu icon"
-    >
-      <mat-icon (click)="this.sid.open()" *ngIf="!this.sid.opened"
-        >menu</mat-icon
-      >
-      <mat-icon (click)="this.sid.close()" *ngIf="this.sid.opened"
-        >close</mat-icon
-      >
-    </button>
-    <span class="example-spacer">News From World</span>
-    <button
-      mat-icon-button
-      class="example-icon favorite-icon"
-      aria-label="Example icon-button with heart icon"
-    >
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with share icon"
-    >
-      <mat-icon>share</mat-icon>
-    </button>
-  </mat-toolbar>
+
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon (click)="this.sid.open()" *ngIf="!this.sid.opened"
+          >menu</mat-icon
+        >
+        <mat-icon (click)="this.sid.close()" *ngIf="this.sid.opened"
+          >close</mat-icon
+        >
+      </button>
+      <span class="example-spacer">News From World</span>
+    </mat-toolbar>
+ 
 
   <mat-sidenav-container>
     <mat-sidenav #sid="matSidenav">
-      <img src="" alt="" class="avatar mat-elevation-z8" />
-      <h4>Lets Program</h4>
+      <img src="../assets/news.png"  class="imageJournalism" />
+      <h4 style="color:white">NewsApp</h4>
       <mat-divider></mat-divider>
-      <button mat-button class="menu-button">
-        <mat-icon>event_note</mat-icon>
-        <span>ABC NEWS</span>
-      </button>
+      <ng-container class='sourcesShow'*ngFor="let source of sources">
+        <button mat-button (click)='searchSource(source)' class="menu-button">
+          <mat-icon>event_note</mat-icon>
+          <span>{{source.name}}</span>
+        </button>
+      </ng-container>
     </mat-sidenav>
 
     <mat-sidenav-content>
       <div class="container-label">
-        <span> Selected News Channel </span>
+        <span> {{selectorNewsLabel}} </span>
       </div>
       <div class="container-for-cards">
+        <ng-container  *ngFor="let article of articles">
+
         <mat-card>
           <mat-card-header>
             <img
               mat-card-image
-              src="../assets/ben-iwara-ctnLbqyQG1M-unsplash.jpg"
+              src={{article.urlToImage}}
               alt="Zdjecie"
             />
           </mat-card-header>
           <mat-card-content>
             <div class="authorDateLabel">
-              <span> Author </span>
-              <span> Data </span>
+              <span> {{article.author}} </span>
+              <span> {{article.publishedAt | date}} </span>
             </div>
-            <div class="titleOfArticle">Title</div>
-            <div class="descriptionArticle">Texttt</div>
+            <div class="titleOfArticle"><h2>
+              {{article.title}}
+            </h2></div>
+            <div class="descriptionArticle">
+              <p [innerHTML]="article.description">
+            </p><a href={{article.url}}>
+              read more ...
+            </a></div>
           </mat-card-content>
         </mat-card>
+      </ng-container>
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
